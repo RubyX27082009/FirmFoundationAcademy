@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firm Foundation Academy | Building Future Leaders</title>
-    <meta name="description" content="Firm Foundation Academy provides quality nursery and primary education in a safe, modern, and disciplined environment.">
-    
+    <meta name="description"
+        content="Firm Foundation Academy provides quality nursery and primary education in a safe, modern, and disciplined environment.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="ffa.jpg">    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="ffa.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -35,16 +39,26 @@
 
     <style>
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F3F4F6; }
-        ::-webkit-scrollbar-thumb { background: #0D2420; border-radius: 4px; }
-        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F3F4F6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #0D2420;
+            border-radius: 4px;
+        }
+
         /* Reveal Animation Utility */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s ease-out;
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
@@ -56,9 +70,15 @@
         }
 
         /* Testimonial hide scrollbar */
-        .hide-scroll::-webkit-scrollbar { display: none; }
-        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
-        
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
@@ -76,38 +96,46 @@
             z-index: 50;
             transition: transform 0.3s ease;
         }
+
         .whatsapp-float:hover {
             transform: translateY(-5px);
         }
     </style>
 </head>
+
 <body class="font-sans text-gray-600 bg-white antialiased overflow-x-hidden">
 
-    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3">
+    <header id="navbar"
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3">
         <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
             <div class="flex items-center justify-between">
                 <a href="#home" class="flex items-center gap-3 group">
                     <div class="w-12 h-12 rounded-full overflow-hidden">
-    <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
-</div>
+                        <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
+                    </div>
                     <div>
-                        <span class="block font-heading font-bold text-xl text-primary leading-tight">Firm Foundation</span>
-                        <span class="block font-heading font-semibold text-xs text-secondary tracking-widest uppercase">Academy</span>
+                        <span class="block font-heading font-bold text-xl text-primary leading-tight">Firm
+                            Foundation</span>
+                        <span
+                            class="block font-heading font-semibold text-xs text-secondary tracking-widest uppercase">Academy</span>
                     </div>
                 </a>
 
                 <nav class="hidden lg:flex items-center gap-6 font-medium text-sm">
                     <a href="#home" class="hover:text-secondary active:text-secondary transition-colors">Home</a>
                     <a href="#about" class="hover:text-secondary active:text-secondary transition-colors">About</a>
-                    <a href="#academics" class="hover:text-secondary active:text-secondary transition-colors">Academics</a>
-                    <a href="#admissions" class="hover:text-secondary active:text-secondary transition-colors">Admissions</a>
+                    <a href="#academics"
+                        class="hover:text-secondary active:text-secondary transition-colors">Academics</a>
+                    <a href="#admissions"
+                        class="hover:text-secondary active:text-secondary transition-colors">Admissions</a>
                     <a href="#gallery" class="hover:text-secondary active:text-secondary transition-colors">Gallery</a>
                     <a href="#news" class="hover:text-secondary active:text-secondary transition-colors">News</a>
                     <a href="#contact" class="hover:text-secondary active:text-secondary transition-colors">Contact</a>
                 </nav>
 
                 <div class="flex items-center gap-4">
-                    <a href="#admissions" class="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors duration-300 shadow-md">
+                    <a href="#admissions"
+                        class="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors duration-300 shadow-md">
                         Apply Now
                     </a>
                     <button id="mobile-menu-btn" class="lg:hidden text-primary p-2">
@@ -117,7 +145,8 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-4 px-6 flex flex-col gap-4">
+        <div id="mobile-menu"
+            class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-4 px-6 flex flex-col gap-4">
             <a href="#home" class="mobile-link text-lg font-medium text-primary">Home</a>
             <a href="#about" class="mobile-link text-lg font-medium text-primary">About Us</a>
             <a href="#academics" class="mobile-link text-lg font-medium text-primary">Academics</a>
@@ -125,7 +154,8 @@
             <a href="#gallery" class="mobile-link text-lg font-medium text-primary">Gallery</a>
             <a href="#news" class="mobile-link text-lg font-medium text-primary">News & Events</a>
             <a href="#contact" class="mobile-link text-lg font-medium text-primary">Contact</a>
-            <a href="#admissions" class="inline-flex items-center justify-center px-6 py-3 mt-2 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
+            <a href="#admissions"
+                class="inline-flex items-center justify-center px-6 py-3 mt-2 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
                 Apply Now
             </a>
         </div>
@@ -133,26 +163,31 @@
 
     <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-32 lg:min-h-[90vh] flex items-center">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.pexels.com/photos/35610368/pexels-photo-35610368.jpeg" alt="Happy students" class="w-full h-full object-cover">
+            <img src="https://images.pexels.com/photos/35610368/pexels-photo-35610368.jpeg" alt="Happy students"
+                class="w-full h-full object-cover">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
         <div class="container mx-auto px-6 max-w-7xl relative z-10 text-white reveal">
-            <span class="inline-block py-1 px-3 rounded-full bg-secondary/20 text-secondary font-bold text-sm tracking-wider mb-6 border border-secondary/30 uppercase">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-secondary/20 text-secondary font-bold text-sm tracking-wider mb-6 border border-secondary/30 uppercase">
                 Welcome to Firm Foundation
             </span>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold leading-tight mb-6 max-w-3xl">
                 Building Strong <span class="text-secondary">Foundations</span> For Future Leaders.
             </h1>
             <p class="text-lg md:text-xl text-green-100 mb-10 max-w-2xl leading-relaxed">
-                We provide a safe, modern, disciplined, and high-quality learning environment designed to nurture your child's brilliance.
+                We provide a safe, modern, disciplined, and high-quality learning environment designed to nurture your
+                child's brilliance.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#admissions" class="px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover hover:-translate-y-1 transition-all text-center flex items-center justify-center gap-2">
+                <a href="#admissions"
+                    class="px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover hover:-translate-y-1 transition-all text-center flex items-center justify-center gap-2">
                     Apply Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
-                <a href="#contact" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/30 rounded-full font-bold hover:bg-white hover:text-primary hover:-translate-y-1 transition-all text-center">
+                <a href="#contact"
+                    class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/30 rounded-full font-bold hover:bg-white hover:text-primary hover:-translate-y-1 transition-all text-center">
                     Contact Us
                 </a>
             </div>
@@ -162,15 +197,19 @@
     <section id="about" class="py-24 bg-white relative">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
+
                 <div class="reveal lg:col-span-2">
-                    <h2 class="font-heading font-bold text-4xl text-primary mb-6">Nurturing Excellence in Every Child.</h2>
+                    <h2 class="font-heading font-bold text-4xl text-primary mb-6">Nurturing Excellence in Every Child.
+                    </h2>
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        At Firm Foundation Academy, we believe that every child is uniquely gifted. Our mission is to provide quality education in a safe and nurturing environment, raising confident, disciplined, and intelligent future leaders.
+                        At Firm Foundation Academy, we believe that every child is uniquely gifted. Our mission is to
+                        provide quality education in a safe and nurturing environment, raising confident, disciplined,
+                        and intelligent future leaders.
                     </p>
                     <div class="p-6 bg-light rounded-2xl border-l-4 border-secondary mb-8 lg:max-w-2xl">
-    <p class="font-heading font-medium text-primary italic lg:whitespace-nowrap">"Knowledge for service unto God and humanity." — Our Vision</p>
-</div>
+                        <p class="font-heading font-medium text-primary italic lg:whitespace-nowrap">"Knowledge for
+                            service unto God and humanity." — Our Vision</p>
+                    </div>
 
                 </div>
 
@@ -180,15 +219,18 @@
                             <i data-lucide="award"></i>
                         </div>
                         <h3 class="font-heading font-bold text-xl text-primary mb-2">Qualified Teachers</h3>
-                        <p class="text-sm text-gray-500">Expert educators dedicated to your child's academic and moral growth.</p>
+                        <p class="text-sm text-gray-500">Expert educators dedicated to your child's academic and moral
+                            growth.</p>
                     </div>
 
                     <div class="bg-secondary/10 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-primary mb-4">
+                        <div
+                            class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-primary mb-4">
                             <i data-lucide="shield-check"></i>
                         </div>
                         <h3 class="font-heading font-bold text-xl text-primary mb-2">Safe Environment</h3>
-                        <p class="text-sm text-gray-500">A secure, fenced, and closely monitored campus for peace of mind.</p>
+                        <p class="text-sm text-gray-500">A secure, fenced, and closely monitored campus for peace of
+                            mind.</p>
                     </div>
 
                     <div class="bg-light p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
@@ -196,59 +238,74 @@
                             <i data-lucide="heart-handshake"></i>
                         </div>
                         <h3 class="font-heading font-bold text-xl text-primary mb-2">Moral Discipline</h3>
-                        <p class="text-sm text-gray-500">We instill strong core values and character alongside academics.</p>
+                        <p class="text-sm text-gray-500">We instill strong core values and character alongside
+                            academics.</p>
                     </div>
-                    <a href="#academics" class="inline-flex items-center gap-2 font-bold text-primary hover:text-secondary transition-colors sm:col-span-2 lg:col-span-3 mt-2">
+                    <a href="#academics"
+                        class="inline-flex items-center gap-2 font-bold text-primary hover:text-secondary transition-colors sm:col-span-2 lg:col-span-3 mt-2">
                         Explore our Academics <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
                 </div>
-        </div>
+            </div>
     </section>
 
     <section id="academics" class="py-24 bg-primary text-white">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <h2 class="font-heading font-bold text-4xl mb-4">Academic Excellence.</h2>
-                <p class="text-green-200 text-lg">Providing a robust and comprehensive curriculum tailored for early childhood development through to primary graduation.</p>
+                <p class="text-green-200 text-lg">Providing a robust and comprehensive curriculum tailored for early
+                    childhood development through to primary graduation.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 mb-16">
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-3xl reveal">
-                    <div class="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-primary mb-6 transform -rotate-6">
+                    <div
+                        class="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-primary mb-6 transform -rotate-6">
                         <i data-lucide="baby" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-heading font-bold text-2xl mb-4 text-secondary">Nursery Section</h3>
-                    <p class="text-green-100 mb-6 leading-relaxed">Our early childhood program focuses on learning through play, motor skills development, and foundational phonics and numeracy.</p>
+                    <p class="text-green-100 mb-6 leading-relaxed">Our early childhood program focuses on learning
+                        through play, motor skills development, and foundational phonics and numeracy.</p>
                     <ul class="space-y-3">
-                        <li class="flex items-center gap-3 text-sm text-white"><i data-lucide="check" class="text-secondary w-4 h-4"></i> Interactive Learning</li>
-                        <li class="flex items-center gap-3 text-sm text-white"><i data-lucide="check" class="text-secondary w-4 h-4"></i> Creative Arts & Crafts</li>
-                        <li class="flex items-center gap-3 text-sm text-white"><i data-lucide="check" class="text-secondary w-4 h-4"></i> Basic Literacy & Phonics</li>
+                        <li class="flex items-center gap-3 text-sm text-white"><i data-lucide="check"
+                                class="text-secondary w-4 h-4"></i> Interactive Learning</li>
+                        <li class="flex items-center gap-3 text-sm text-white"><i data-lucide="check"
+                                class="text-secondary w-4 h-4"></i> Creative Arts & Crafts</li>
+                        <li class="flex items-center gap-3 text-sm text-white"><i data-lucide="check"
+                                class="text-secondary w-4 h-4"></i> Basic Literacy & Phonics</li>
                     </ul>
                 </div>
 
                 <div class="bg-secondary p-10 rounded-3xl text-primary shadow-xl reveal transform md:-translate-y-4">
-                    <div class="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-secondary mb-6 transform rotate-6">
+                    <div
+                        class="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-secondary mb-6 transform rotate-6">
                         <i data-lucide="graduation-cap" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-heading font-bold text-2xl mb-4">Primary Section</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">A rigorous academic program blending the Nigerian and British curriculums to prepare students for top secondary schools globally.</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">A rigorous academic program blending the Nigerian and
+                        British curriculums to prepare students for top secondary schools globally.</p>
                     <ul class="space-y-3">
-                        <li class="flex items-center gap-3 text-sm font-medium"><i data-lucide="check" class="text-primary w-4 h-4"></i> Core Subjects (Math, English, Science)</li>
-                        <li class="flex items-center gap-3 text-sm font-medium"><i data-lucide="check" class="text-primary w-4 h-4"></i> ICT & Digital Literacy</li>
-                        <li class="flex items-center gap-3 text-sm font-medium"><i data-lucide="check" class="text-primary w-4 h-4"></i> Hybrid Curriculum Standard</li>
+                        <li class="flex items-center gap-3 text-sm font-medium"><i data-lucide="check"
+                                class="text-primary w-4 h-4"></i> Core Subjects (Math, English, Science)</li>
+                        <li class="flex items-center gap-3 text-sm font-medium"><i data-lucide="check"
+                                class="text-primary w-4 h-4"></i> ICT & Digital Literacy</li>
+                        <li class="flex items-center gap-3 text-sm font-medium"><i data-lucide="check"
+                                class="text-primary w-4 h-4"></i> Hybrid Curriculum Standard</li>
                     </ul>
                 </div>
             </div>
 
             <div class="text-center reveal">
-                <p class="text-green-200 mb-4 text-sm font-medium uppercase tracking-widest">Co-Curricular Activities</p>
+                <p class="text-green-200 mb-4 text-sm font-medium uppercase tracking-widest">Co-Curricular Activities
+                </p>
                 <div class="flex flex-wrap justify-center gap-3">
                     <span class="px-5 py-2 bg-white/5 border border-white/20 rounded-full text-sm">Sports</span>
                     <span class="px-5 py-2 bg-white/5 border border-white/20 rounded-full text-sm">Music & Arts</span>
                     <span class="px-5 py-2 bg-white/5 border border-white/20 rounded-full text-sm">Debate Club</span>
-                    <span class="px-5 py-2 bg-white/5 border border-white/20 rounded-full text-sm">Cultural Groups</span>
-                    
-            </div>
+                    <span class="px-5 py-2 bg-white/5 border border-white/20 rounded-full text-sm">Cultural
+                        Groups</span>
+
+                </div>
             </div>
         </div>
     </section>
@@ -258,34 +315,44 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
                 <div class="max-w-xl">
                     <h2 class="font-heading font-bold text-4xl text-primary mb-4">Premium Facilities.</h2>
-                    <p class="text-gray-600 text-lg">Everything your child needs to learn, play, and grow comfortably.</p>
+                    <p class="text-gray-600 text-lg">Everything your child needs to learn, play, and grow comfortably.
+                    </p>
                 </div>
-                <a href="#gallery" class="mt-4 md:mt-0 font-bold text-primary hover:text-secondary transition-colors flex items-center gap-2">
+                <a href="#gallery"
+                    class="mt-4 md:mt-0 font-bold text-primary hover:text-secondary transition-colors flex items-center gap-2">
                     View Full Gallery <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
                 <div class="col-span-2 row-span-2 h-96 rounded-3xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop" alt="Modern Classroom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop"
+                        alt="Modern Classroom"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                         <h3 class="text-white font-heading font-bold text-xl"></h3>
                     </div>
                 </div>
                 <div class="h-188px rounded-3xl overflow-hidden relative group">
-                    <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=1000&auto=format&fit=crop" alt="ICT Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=1000&auto=format&fit=crop"
+                        alt="ICT Lab"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                         <h3 class="text-white font-heading font-bold"></h3>
                     </div>
                 </div>
                 <div class="h-188px rounded-3xl overflow-hidden relative group">
-                    <img src="https://images.unsplash.com/photo-1560780552-ba54683cb263?q=80&w=1000&auto=format&fit=crop" alt="Library" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1560780552-ba54683cb263?q=80&w=1000&auto=format&fit=crop"
+                        alt="Library"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                         <h3 class="text-white font-heading font-bold"></h3>
-                    </div>                        
+                    </div>
                 </div>
                 <div class="col-span-2 h-40     rounded-3xl overflow-hidden relative group">
-                    <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?q=80&w=1000&auto=format&fit=crop" alt="Playground" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?q=80&w=1000&auto=format&fit=crop"
+                        alt="Playground"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                         <h3 class="text-white font-heading font-bold"></h3>
                     </div>
@@ -302,29 +369,45 @@
             </div>
 
             <div class="flex gap-6 overflow-x-auto hide-scroll snap-x snap-mandatory pb-8 reveal">
-                <div class="min-w-[100%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-light p-8 rounded-3xl">
+                <div
+                    class="min-w-[100%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-light p-8 rounded-3xl">
                     <div class="flex text-secondary mb-4">
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star"
+                            class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i
+                            data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star"
+                            class="fill-current w-5 h-5"></i>
                     </div>
-                    <p class="text-gray-600 italic mb-6">"Enrolling my child here was the best decision. The teachers are incredibly caring, and I've seen a massive improvement in my son's reading and confidence."</p>
+                    <p class="text-gray-600 italic mb-6">"Enrolling my child here was the best decision. The teachers
+                        are incredibly caring, and I've seen a massive improvement in my son's reading and confidence."
+                    </p>
                     <div class="font-heading font-bold text-primary">- Mr. Odogwu Degreat</div>
                     <div class="text-xs text-gray-400">Parent of Kg 2 Student</div>
                 </div>
 
-                <div class="min-w-[100%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-light p-8 rounded-3xl">
+                <div
+                    class="min-w-[100%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-light p-8 rounded-3xl">
                     <div class="flex text-secondary mb-4">
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star"
+                            class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i
+                            data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star"
+                            class="fill-current w-5 h-5"></i>
                     </div>
-                    <p class="text-gray-600 italic mb-6">"The moral discipline and academic standards are top-notch. The environment is always clean and very secure. Highly recommended to any parent."</p>
+                    <p class="text-gray-600 italic mb-6">"The moral discipline and academic standards are top-notch. The
+                        environment is always clean and very secure. Highly recommended to any parent."</p>
                     <div class="font-heading font-bold text-primary">- Mr. Okafor</div>
                     <div class="text-xs text-gray-400">Parent of Nursery 2 Student</div>
                 </div>
 
-                <div class="min-w-[100%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-light p-8 rounded-3xl">
+                <div
+                    class="min-w-[100%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-light p-8 rounded-3xl">
                     <div class="flex text-secondary mb-4">
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star"
+                            class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i
+                            data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star"
+                            class="fill-current w-5 h-5"></i>
                     </div>
-                    <p class="text-gray-600 italic mb-6">"Firm Foundation truly lives up to its name. They prepare the children not just to pass exams, but to be responsible members of society."</p>
+                    <p class="text-gray-600 italic mb-6">"Firm Foundation truly lives up to its name. They prepare the
+                        children not just to pass exams, but to be responsible members of society."</p>
                     <div class="font-heading font-bold text-primary">- Dr. Johnson</div>
                     <div class="text-xs text-gray-400">Parent of Primary 5 Student</div>
                 </div>
@@ -334,36 +417,48 @@
 
     <section id="admissions" class="py-24 bg-primary relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-secondary rounded-full blur-[150px] opacity-20"></div>
-        
+
         <div class="container mx-auto px-6 max-w-7xl relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
+
                 <div class="text-white reveal">
-                    <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block">Join Our School</span>
+                    <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block">Join Our
+                        School</span>
                     <h2 class="font-heading font-bold text-4xl mb-6">Start Your Child's Journey Today.</h2>
-                    <p class="text-green-100 text-lg mb-10 leading-relaxed">We are currently accepting applications for the new academic session. Secure a spot for your child in a school that prioritizes their success.</p>
-                    
+                    <p class="text-green-100 text-lg mb-10 leading-relaxed">We are currently accepting applications for
+                        the new academic session. Secure a spot for your child in a school that prioritizes their
+                        success.</p>
+
                     <h3 class="font-heading font-bold text-xl text-secondary mb-4">Admission Process</h3>
                     <ul class="space-y-4 mb-8">
                         <li class="flex gap-4 items-start">
-                            <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">1</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">
+                                1</div>
                             <div>
                                 <strong class="block text-white">Submit Application</strong>
-                                <span class="text-sm text-green-200">Fill the online form or obtain a form at the school.</span>
+                                <span class="text-sm text-green-200">Fill the online form or obtain a form at the
+                                    school.</span>
                             </div>
                         </li>
                         <li class="flex gap-4 items-start">
-                            <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">2</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">
+                                2</div>
                             <div>
                                 <strong class="block text-white">Provide Documents</strong>
-                                <span class="text-sm text-green-200">Birth certificate, passport photos, and previous results.</span>
+                                <span class="text-sm text-green-200">Birth certificate, passport photos, and previous
+                                    results.</span>
                             </div>
                         </li>
                         <li class="flex gap-4 items-start">
-                            <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">3</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">
+                                3</div>
                             <div>
                                 <strong class="block text-white">Screening & Interview</strong>
-                                <span class="text-sm text-green-200">A brief assessment to place your child appropriately.</span>
+                                <span class="text-sm text-green-200">A brief assessment to place your child
+                                    appropriately.</span>
                             </div>
                         </li>
                     </ul>
@@ -376,25 +471,30 @@
                         <div class="grid grid-cols-2 gap-5">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Parent's Name *</label>
-                                <input type="text" name="Parent's Name" required class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                                <input type="text" name="Parent's Name" required
+                                    class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                                <input type="tel" name="Phone" required class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                                <input type="tel" name="Phone" required
+                                    class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                            <input type="email" name="Email" required class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                            <input type="email" name="Email" required
+                                class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                         </div>
                         <div class="grid grid-cols-2 gap-5">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Child's Name *</label>
-                                <input type="text" name="Child's Name" required class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                                <input type="text" name="Child's Name" required
+                                    class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Class Intended *</label>
-                                <select name="Class Intended" required class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none">
+                                <select name="Class Intended" required
+                                    class="w-full px-4 py-3 bg-light border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none">
                                     <option value="">Select Class</option>
                                     <option>Preschool</option>
                                     <option>Kg 1</option>
@@ -409,10 +509,12 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" id="admission-submit-btn" class="w-full py-4 bg-secondary text-primary rounded-xl font-bold hover:bg-secondaryHover transition-colors mt-4 text-lg">
+                        <button type="submit" id="admission-submit-btn"
+                            class="w-full py-4 bg-secondary text-primary rounded-xl font-bold hover:bg-secondaryHover transition-colors mt-4 text-lg">
                             Submit Inquiry
                         </button>
-                        <p id="form-success" class="text-green-600 text-sm font-medium text-center hidden mt-2">Details submitted successfully. We will call you shortly!</p>
+                        <p id="form-success" class="text-green-600 text-sm font-medium text-center hidden mt-2">Details
+                            submitted successfully. We will call you shortly!</p>
                     </form>
                 </div>
 
@@ -428,39 +530,58 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 reveal">
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+                <div
+                    class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
                     <div class="h-48 bg-primary/10 relative">
-                        <div class="absolute top-4 left-4 bg-secondary text-primary font-bold text-xs py-1 px-3 rounded-full">Important</div>
+                        <div
+                            class="absolute top-4 left-4 bg-secondary text-primary font-bold text-xs py-1 px-3 rounded-full">
+                            Important</div>
                     </div>
                     <div class="p-6">
                         <p class="text-xs text-gray-400 mb-2">September 10, 2026</p>
-                        <h3 class="font-heading font-bold text-xl text-primary mb-3">Resumption for New Academic Term</h3>
-                        <p class="text-gray-600 text-sm mb-4">All parents are reminded that the new academic session begins next Monday. Please ensure all stationeries are provided.</p>
-                        <a href="#" class="text-primary font-bold text-sm flex items-center gap-1 hover:text-secondary">Read More <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                        <h3 class="font-heading font-bold text-xl text-primary mb-3">Resumption for New Academic Term
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">All parents are reminded that the new academic session
+                            begins next Monday. Please ensure all stationeries are provided.</p>
+                        <a href="#"
+                            class="text-primary font-bold text-sm flex items-center gap-1 hover:text-secondary">Read
+                            More <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+                <div
+                    class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
                     <div class="h-48 bg-primary/10 relative">
-                        <div class="absolute top-4 left-4 bg-secondary text-primary font-bold text-xs py-1 px-3 rounded-full">Event</div>
+                        <div
+                            class="absolute top-4 left-4 bg-secondary text-primary font-bold text-xs py-1 px-3 rounded-full">
+                            Event</div>
                     </div>
                     <div class="p-6">
                         <p class="text-xs text-gray-400 mb-2">July 22, 2026</p>
                         <h3 class="font-heading font-bold text-xl text-primary mb-3">Annual Inter-House Sports</h3>
-                        <p class="text-gray-600 text-sm mb-4">Join us for a day of athletic excellence and fun! Students will be competing in various track and field events.</p>
-                        <a href="#" class="text-primary font-bold text-sm flex items-center gap-1 hover:text-secondary">Read More <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                        <p class="text-gray-600 text-sm mb-4">Join us for a day of athletic excellence and fun! Students
+                            will be competing in various track and field events.</p>
+                        <a href="#"
+                            class="text-primary font-bold text-sm flex items-center gap-1 hover:text-secondary">Read
+                            More <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+                <div
+                    class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
                     <div class="h-48 bg-primary/10 relative">
-                        <div class="absolute top-4 left-4 bg-secondary text-primary font-bold text-xs py-1 px-3 rounded-full">Academic</div>
+                        <div
+                            class="absolute top-4 left-4 bg-secondary text-primary font-bold text-xs py-1 px-3 rounded-full">
+                            Academic</div>
                     </div>
                     <div class="p-6">
                         <p class="text-xs text-gray-400 mb-2">June 15, 2026</p>
                         <h3 class="font-heading font-bold text-xl text-primary mb-3">Mid-Term Examination Schedule</h3>
-                        <p class="text-gray-600 text-sm mb-4">The timetable for the upcoming mid-term examinations has been released. Download the PDF version here.</p>
-                        <a href="#" class="text-primary font-bold text-sm flex items-center gap-1 hover:text-secondary">Read More <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                        <p class="text-gray-600 text-sm mb-4">The timetable for the upcoming mid-term examinations has
+                            been released. Download the PDF version here.</p>
+                        <a href="#"
+                            class="text-primary font-bold text-sm flex items-center gap-1 hover:text-secondary">Read
+                            More <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -472,22 +593,25 @@
             <div class="grid lg:grid-cols-2 gap-16">
                 <div class="reveal">
                     <h2 class="font-heading font-bold text-4xl text-primary mb-6">Get In Touch.</h2>
-                    <p class="text-gray-600 mb-10">Have questions about admissions, fees, or our curriculum? We would love to hear from you. Visit us or send a message.</p>
-                    
+                    <p class="text-gray-600 mb-10">Have questions about admissions, fees, or our curriculum? We would
+                        love to hear from you. Visit us or send a message.</p>
+
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center text-primary shrink-0">
+                            <div
+                                class="w-12 h-12 bg-light rounded-full flex items-center justify-center text-primary shrink-0">
                                 <i data-lucide="map-pin"></i>
                             </div>
                             <div>
                                 <h4 class="font-heading font-bold text-primary">Visit Our School</h4>
                                 <p class="text-gray-600 text-sm">No 9 Aghafekokhian street,
-Behind Ugbekun primary school,
-Off Upper Sakponba Road, Benin City.</p>
+                                    Behind Ugbekun primary school,
+                                    Off Upper Sakponba Road, Benin City.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center text-primary shrink-0">
+                            <div
+                                class="w-12 h-12 bg-light rounded-full flex items-center justify-center text-primary shrink-0">
                                 <i data-lucide="phone"></i>
                             </div>
                             <div>
@@ -496,12 +620,14 @@ Off Upper Sakponba Road, Benin City.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center text-primary shrink-0">
+                            <div
+                                class="w-12 h-12 bg-light rounded-full flex items-center justify-center text-primary shrink-0">
                                 <i data-lucide="mail"></i>
                             </div>
                             <div>
                                 <h4 class="font-heading font-bold text-primary">Email Us</h4>
-                                <p class="text-gray-600 text-sm">edokpolor50@gmail.com<br>funmilolaedokpolor@gmail.com</p>
+                                <p class="text-gray-600 text-sm">edokpolor50@gmail.com<br>funmilolaedokpolor@gmail.com
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -512,27 +638,32 @@ Off Upper Sakponba Road, Benin City.</p>
                         <input type="hidden" name="Form Name" value="Contact Us Form">
                         <div>
                             <label class="block text-sm font-medium text-primary mb-1">Your Name</label>
-                            <input type="text" name="Name" required class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
+                            <input type="text" name="Name" required
+                                class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-primary mb-1">Email Address</label>
-                            <input type="email" name="Email" required class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
+                            <input type="email" name="Email" required
+                                class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-primary mb-1">Phone Number</label>
-                            <input type="tel" name="Phone" required class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
+                            <input type="tel" name="Phone" required
+                                class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-primary mb-1">Message</label>
-                            <textarea rows="4" name="Message" required class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary resize-none"></textarea>
+                            <textarea rows="4" name="Message" required
+                                class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-primary resize-none"></textarea>
                         </div>
-                        <button type="submit" id="contact-submit-btn" class="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-green-950 transition-colors">
+                        <button type="submit" id="contact-submit-btn"
+                            class="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-green-950 transition-colors">
                             Send Message
                         </button>
                         <p id="contact-form-status" class="text-center text-sm font-medium hidden"></p>
                     </form>
                 </div>
-                    
+
             </div>
         </div>
     </section>
@@ -546,22 +677,37 @@ Off Upper Sakponba Road, Benin City.</p>
                             <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
                         </div>
                         <div>
-                            <span class="block font-heading font-bold text-lg text-white leading-tight">Firm Foundation</span>
-                            <span class="block font-heading font-semibold text-[10px] text-secondary tracking-widest uppercase">Academy</span>
+                            <span class="block font-heading font-bold text-lg text-white leading-tight">Firm
+                                Foundation</span>
+                            <span
+                                class="block font-heading font-semibold text-[10px] text-secondary tracking-widest uppercase">Academy</span>
                         </div>
                     </a>
-                    <p class="text-sm leading-relaxed mb-6">Providing quality education in a safe and nurturing environment to raise tomorrow's leaders.</p>
+                    <p class="text-sm leading-relaxed mb-6">Providing quality education in a safe and nurturing
+                        environment to raise tomorrow's leaders.</p>
                     <div class="flex gap-4">
-    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
-    </a>
-    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
-    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-</div>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current">
+                                <path
+                                    d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
                 <div>
@@ -578,8 +724,10 @@ Off Upper Sakponba Road, Benin City.</p>
                     <h4 class="text-white font-heading font-bold mb-6">Admissions</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="#admissions" class="hover:text-secondary transition-colors">Apply Online</a></li>
-                        <li><a href="#admissions" class="hover:text-secondary transition-colors">Admission Process</a></li>
-                        <li><a href="#admissions" class="hover:text-secondary transition-colors">School Fees Info</a></li>
+                        <li><a href="#admissions" class="hover:text-secondary transition-colors">Admission Process</a>
+                        </li>
+                        <li><a href="#admissions" class="hover:text-secondary transition-colors">School Fees Info</a>
+                        </li>
                         <li><a href="#contact" class="hover:text-secondary transition-colors">Schedule a Tour</a></li>
                     </ul>
                 </div>
@@ -589,7 +737,9 @@ Off Upper Sakponba Road, Benin City.</p>
                     <ul class="space-y-3 text-sm">
                         <li><a href="#" class="hover:text-secondary transition-colors">Student Login</a></li>
                         <li><a href="#" class="hover:text-secondary transition-colors">Staff Portal</a></li>
-                        <li class="pt-2"><a href="#" class="text-secondary font medium hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li class="pt-2"><a href="#"
+                                class="text-secondary font medium hover:text-white transition-colors">Privacy Policy</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -601,7 +751,12 @@ Off Upper Sakponba Road, Benin City.</p>
     </footer>
 
     <a href="https://wa.me/2348030969578" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.428a.75.75 0 0 0 .919.919l5.569-1.475A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.362l-.355-.212-3.706.981.993-3.614-.231-.373A9.725 9.725 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.428a.75.75 0 0 0 .919.919l5.569-1.475A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.362l-.355-.212-3.706.981.993-3.614-.231-.373A9.725 9.725 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
+        </svg>
         <span class="hidden md:inline">Message Us</span>
     </a>
 
@@ -610,7 +765,7 @@ Off Upper Sakponba Road, Benin City.</p>
         lucide.createIcons();
 
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // Mobile Menu
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -631,7 +786,7 @@ Off Upper Sakponba Road, Benin City.</p>
 
             mobileBtn.addEventListener('click', toggleMenu);
             mobileLinks.forEach(link => link.addEventListener('click', () => {
-                if(isMenuOpen) toggleMenu();
+                if (isMenuOpen) toggleMenu();
             }));
 
             // Scroll Animation Observer
@@ -640,7 +795,7 @@ Off Upper Sakponba Road, Benin City.</p>
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target); 
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
@@ -654,77 +809,113 @@ Off Upper Sakponba Road, Benin City.</p>
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-const SUPABASE_URL = 'https://pmdnmmyoomecrycsjwoa.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtZG5tbXlvb21lY3J5Y3Nqd29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODI4MTEsImV4cCI6MjA5Njk1ODgxMX0.uLIdShLsddsD7hN-Ah5NvioYjwKRmel4WHiIU-8Znhg';
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    <script>
+        const SUPABASE_URL = 'https://pmdnmmyoomecrycsjwoa.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtZG5tbXlvb21lY3J5Y3Nqd29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODI4MTEsImV4cCI6MjA5Njk1ODgxMX0.uLIdShLsddsD7hN-Ah5NvioYjwKRmel4WHiIU-8Znhg';
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// ENROLLMENT FORM
-document.getElementById('admission-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('admission-submit-btn');
-    const successMsg = document.getElementById('form-success');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+        // ENROLLMENT FORM
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuRvTwKlk9qja6qDb5t3RHtf2xaMZGbZtpdkIeJ1em1AKJGlAzKsa1ziKeIGEELFk/exec';
 
-    const { error } = await supabaseClient.from('enrollments').insert([{
-        parent_name: this.querySelector('[name="Parent\'s Name"]').value,
-        phone: this.querySelector('[name="Phone"]').value,
-        email: this.querySelector('[name="Email"]').value,
-        child_name: this.querySelector('[name="Child Name" ]').value,
-        class_intended: this.querySelector('[name="Class Intended"]').value,
-    }]);
+        document.getElementById('admission-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('admission-submit-btn');
+            const successMsg = document.getElementById('form-success');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
 
-    if (!error) {
-        btn.textContent = 'Submitted ✓';
-        successMsg.classList.remove('hidden');
-        this.reset();
-        setTimeout(() => {
-            btn.textContent = 'Submit Inquiry';
-            btn.disabled = false;
-            successMsg.classList.add('hidden');
-        }, 4000);
-    } else {
-        btn.textContent = 'Submit Inquiry';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again.');
-    }
-});
+            const formData = {
+                type: 'enrollment',
+                parent_name: this.querySelector('[name="Parent Name"]').value,
+                phone: this.querySelector('[name="Phone"]').value,
+                email: this.querySelector('[name="Email"]').value,
+                child_name: this.querySelector('[name="Child Name"]').value,
+                class_intended: this.querySelector('[name="Class Intended"]').value,
+            };
 
-// CONTACT FORM
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('contact-submit-btn');
-    const status = document.getElementById('contact-form-status');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+            try {
+                // Save to Supabase
+                await supabaseClient.from('Enrollments').insert([{
+                    "Parent name": formData.parent_name,
+                    "Phone": formData.phone,
+                    "Email": formData.email,
+                    "Child name": formData.child_name,
+                    "Class Intended": formData.class_intended,
+                }]);
 
-    const { error } = await supabaseClient.from('contact_messages').insert([{
-        name: this.querySelector('[name="Name"]').value,
-        email: this.querySelector('[name="Email"]').value,
-        phone: this.querySelector('[name="Phone"]').value,
-        message: this.querySelector('[name="Message"]').value,
-    }]);
+                // Send to Google Sheets + Email
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                });
 
-    if (!error) {
-        btn.textContent = 'Message Sent ✓';
-        status.textContent = "Thank you! We'll get back to you soon.";
-        status.className = "text-center text-sm font-medium text-green-700";
-        status.classList.remove('hidden');
-        this.reset();
-        setTimeout(() => {
-            btn.textContent = 'Send Message';
-            btn.disabled = false;
-            status.classList.add('hidden');
-        }, 4000);
-    } else {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-        status.textContent = "Something went wrong. Please try again.";
-        status.className = "text-center text-sm font-medium text-red-600";
-        status.classList.remove('hidden');
-    }
-});
-</script>
+                btn.textContent = 'Submitted ✓';
+                successMsg.classList.remove('hidden');
+                this.reset();
+                setTimeout(() => {
+                    btn.textContent = 'Submit Inquiry';
+                    btn.disabled = false;
+                    successMsg.classList.add('hidden');
+                }, 4000);
+
+            } catch (err) {
+                btn.textContent = 'Submit Inquiry';
+                btn.disabled = false;
+                alert('Something went wrong. Please try again.');
+            }
+        });
+
+        // CONTACT FORM
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('contact-submit-btn');
+            const status = document.getElementById('contact-form-status');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const formData = {
+                type: 'contact',
+                name: this.querySelector('[name="Name"]').value,
+                email: this.querySelector('[name="Email"]').value,
+                phone: this.querySelector('[name="Phone"]').value,
+                message: this.querySelector('[name="Message"]').value,
+            };
+
+            try {
+                // Save to Supabase
+                await supabaseClient.from('Contact Messages').insert([{
+                    "Name": formData.name,
+                    "Email": formData.email,
+                    "Phone": formData.phone,
+                    "Message": formData.message,
+                }]);
+
+                // Send to Google Sheets + Email
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                });
+
+                btn.textContent = 'Message Sent ✓';
+                status.textContent = "Thank you! We'll get back to you soon.";
+                status.className = "text-center text-sm font-medium text-green-700";
+                status.classList.remove('hidden');
+                this.reset();
+                setTimeout(() => {
+                    btn.textContent = 'Send Message';
+                    btn.disabled = false;
+                    status.classList.add('hidden');
+                }, 4000);
+
+            } catch (err) {
+                btn.textContent = 'Send Message';
+                btn.disabled = false;
+                status.textContent = "Something went wrong. Please try again.";
+                status.className = "text-center text-sm font-medium text-red-600";
+                status.classList.remove('hidden');
+            }
+        });
+    </script>
 </body>
+
 </html>
