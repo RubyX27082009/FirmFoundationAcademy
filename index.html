@@ -836,10 +836,10 @@
             try {
                 // Save to Supabase
                 const { error: supaError } = await supabaseClient.from('Enrollments').insert([{
-                    "Parent name": formData.parent_name,
+                    "Parent Name": formData.parent_name,
                     "Phone": formData.phone,
                     "Email": formData.email,
-                    "Child name": formData.child_name,
+                    "Child Name": formData.child_name,
                     "Class Intended": formData.class_intended,
                 }]);
 
