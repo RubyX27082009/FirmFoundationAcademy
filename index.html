@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,17 +123,17 @@
                 <nav class="hidden lg:flex items-center gap-6 font-medium text-sm">
                     <a href="#home" class="hover:text-secondary active:text-secondary transition-colors">Home</a>
                     <a href="about.html" class="hover:text-secondary active:text-secondary transition-colors">About</a>
-                    <a href="#academics"
+                    <a href="academics.html"
                         class="hover:text-secondary active:text-secondary transition-colors">Academics</a>
-                    <a href="#admissions"
+                    <a href="admissions.html"
                         class="hover:text-secondary active:text-secondary transition-colors">Admissions</a>
-                    <a href="#gallery" class="hover:text-secondary active:text-secondary transition-colors">Gallery</a>
-                    <a href="#news" class="hover:text-secondary active:text-secondary transition-colors">News</a>
+                    <a href="gallery.html" class="hover:text-secondary active:text-secondary transition-colors">Gallery</a>
+                    <a href="news.html" class="hover:text-secondary active:text-secondary transition-colors">News</a>
                     <a href="#contact" class="hover:text-secondary active:text-secondary transition-colors">Contact</a>
                 </nav>
 
                 <div class="flex items-center gap-4">
-                    <a href="#admissions"
+                    <a href="admissions.html"
                         class="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors duration-300 shadow-md">
                         Apply Now
                     </a>
@@ -147,14 +146,14 @@
 
         <div id="mobile-menu"
             class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-4 px-6 flex flex-col gap-4">
-            <a href="index.html" class="mobile-link text-lg font-medium text-primary">Home</a>
+            <a href="#home" class="mobile-link text-lg font-medium text-primary">Home</a>
             <a href="about.html" class="mobile-link text-lg font-medium text-primary">About Us</a>
-            <a href="#academics" class="mobile-link text-lg font-medium text-primary">Academics</a>
-            <a href="#admissions" class="mobile-link text-lg font-medium text-primary">Admissions</a>
-            <a href="#gallery" class="mobile-link text-lg font-medium text-primary">Gallery</a>
-            <a href="#news" class="mobile-link text-lg font-medium text-primary">News & Events</a>
+            <a href="academics.html" class="mobile-link text-lg font-medium text-primary">Academics</a>
+            <a href="admissions.html" class="mobile-link text-lg font-medium text-primary">Admissions</a>
+            <a href="gallery.html" class="mobile-link text-lg font-medium text-primary">Gallery</a>
+            <a href="news.html" class="mobile-link text-lg font-medium text-primary">News & Events</a>
             <a href="#contact" class="mobile-link text-lg font-medium text-primary">Contact</a>
-            <a href="#admissions"
+            <a href="admissions.html"
                 class="inline-flex items-center justify-center px-6 py-3 mt-2 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
                 Apply Now
             </a>
@@ -182,7 +181,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#admissions"
+                <a href="admissions.html"
                     class="px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover hover:-translate-y-1 transition-all text-center flex items-center justify-center gap-2">
                     Apply Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
@@ -241,7 +240,7 @@
                         <p class="text-sm text-gray-500">We instill strong core values and character alongside
                             academics.</p>
                     </div>
-                    <a href="#academics"
+                    <a href="academics.html"
                         class="inline-flex items-center gap-2 font-bold text-primary hover:text-secondary transition-colors sm:col-span-2 lg:col-span-3 mt-2">
                         Explore our Academics <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
@@ -714,7 +713,7 @@
                     <h4 class="text-white font-heading font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="about.html" class="hover:text-secondary transition-colors">About Us</a></li>
-                        <li><a href="#academics" class="hover:text-secondary transition-colors">Curriculum</a></li>
+                        <li><a href="academics.html" class="hover:text-secondary transition-colors">Curriculum</a></li>
                         <li><a href="#gallery" class="hover:text-secondary transition-colors">School Gallery</a></li>
                         <li><a href="#news" class="hover:text-secondary transition-colors">News & Updates</a></li>
                     </ul>
@@ -723,10 +722,10 @@
                 <div>
                     <h4 class="text-white font-heading font-bold mb-6">Admissions</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#admissions" class="hover:text-secondary transition-colors">Apply Online</a></li>
-                        <li><a href="#admissions" class="hover:text-secondary transition-colors">Admission Process</a>
+                        <li><a href="admissions.html" class="hover:text-secondary transition-colors">Apply Online</a></li>
+                        <li><a href="admissions.html" class="hover:text-secondary transition-colors">Admission Process</a>
                         </li>
-                        <li><a href="#admissions" class="hover:text-secondary transition-colors">School Fees Info</a>
+                        <li><a href="admissions.html" class="hover:text-secondary transition-colors">School Fees Info</a>
                         </li>
                         <li><a href="#contact" class="hover:text-secondary transition-colors">Schedule a Tour</a></li>
                     </ul>
@@ -835,7 +834,7 @@
 
             try {
                 // Save to Supabase
-                const { error: supaError } = await supabaseClient.from('Enrollments').insert([{
+                await supabaseClient.from('Enrollments').insert([{
                     "Parent Name": formData.parent_name,
                     "Phone": formData.phone,
                     "Email": formData.email,
@@ -843,16 +842,11 @@
                     "Class Intended": formData.class_intended,
                 }]);
 
-                if (supaError) {
-                    console.error('Supabase error:', supaError);
-                }
-
                 // Send to Google Sheets + Email
-                const sheetResponse = await fetch(APPS_SCRIPT_URL, {
+                await fetch(APPS_SCRIPT_URL, {
                     method: 'POST',
                     body: JSON.stringify(formData)
                 });
-                console.log('Sheet response:', await sheetResponse.text());
 
                 btn.textContent = 'Submitted ✓';
                 successMsg.classList.remove('hidden');
@@ -864,7 +858,6 @@
                 }, 4000);
 
             } catch (err) {
-                console.error('Catch error:', err);
                 btn.textContent = 'Submit Inquiry';
                 btn.disabled = false;
                 alert('Something went wrong. Please try again.');
@@ -923,5 +916,4 @@
         });
     </script>
 </body>
-
 </html>
