@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Firm Foundation Academy</title>
+    <meta name="description" content="Take a look inside Firm Foundation Academy — our classrooms, students, activities, and vibrant school life in Benin City, Nigeria.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="ffa.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D2420',
+                        secondary: '#FACC15',
+                        secondaryHover: '#EAB308',
+                        light: '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F3F4F6; }
+        ::-webkit-scrollbar-thumb { background: #0D2420; border-radius: 4px; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13,36,32,0.9) 0%, rgba(13,36,32,0.1) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-item.filtered-out {
+            display: none;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background-color: #0D2420;
+            color: white;
+        }
+        .filter-btn:not(.active) {
+            background-color: #F3F4F6;
+            color: #0D2420;
+        }
+        .filter-btn:not(.active):hover {
+            background-color: #FACC15;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-600 bg-white antialiased overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3">
+        <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                        <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="block font-heading font-bold text-xl text-primary leading-tight">Firm Foundation</span>
+                        <span class="block font-heading font-semibold text-xs text-secondary tracking-widest uppercase">Academy</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-6 font-medium text-sm">
+                    <a href="index.html" class="hover:text-secondary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-secondary transition-colors">About</a>
+                    <a href="academics.html" class="hover:text-secondary transition-colors">Academics</a>
+                    <a href="admissions.html" class="hover:text-secondary transition-colors">Admissions</a>
+                    <a href="gallery.html" class="text-secondary font-bold transition-colors">Gallery</a>
+                    <a href="news.html" class="hover:text-secondary transition-colors">News</a>
+                    <a href="contact.html" class="hover:text-secondary transition-colors">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="admissions.html" class="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors duration-300 shadow-md">
+                        Apply Now
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden text-primary p-2">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-4 px-6 flex flex-col gap-4">
+            <a href="index.html" class="mobile-link text-lg font-medium text-primary">Home</a>
+            <a href="about.html" class="mobile-link text-lg font-medium text-primary">About Us</a>
+            <a href="academics.html" class="mobile-link text-lg font-medium text-primary">Academics</a>
+            <a href="admissions.html" class="mobile-link text-lg font-medium text-primary">Admissions</a>
+            <a href="gallery.html" class="mobile-link text-lg font-medium text-secondary font-bold">Gallery</a>
+            <a href="news.html" class="mobile-link text-lg font-medium text-primary">News & Events</a>
+            <a href="contact.html" class="mobile-link text-lg font-medium text-primary">Contact</a>
+            <a href="admissions.html" class="inline-flex items-center justify-center px-6 py-3 mt-2 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
+                Apply Now
+            </a>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="bg-primary pt-36 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-secondary rounded-full blur-[150px]"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-secondary rounded-full blur-[130px]"></div>
+        </div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="text-center text-white reveal">
+                <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Life at Firm Foundation</span>
+                <h1 class="font-heading font-bold text-4xl md:text-6xl mb-6">Our School <span class="text-secondary">Gallery.</span></h1>
+                <p class="text-green-200 text-lg max-w-2xl mx-auto">Step inside our classrooms, playgrounds, and special moments — every picture tells a story of learning, growth, and joy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY GRID WITH FILTERS -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Snapshots</span>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-4">Moments Worth Remembering</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">From classroom breakthroughs to playground laughter, here's a glimpse into everyday life at Firm Foundation Academy.</p>
+            </div>
+
+            <!-- FILTER BUTTONS -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+                <button class="filter-btn active font-bold text-sm px-6 py-2.5 rounded-full" data-filter="all">All</button>
+                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="nursery">Nursery</button>
+                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="primary">Primary</button>
+                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="events">Events</button>
+                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="sports">Sports</button>
+                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="arts">Arts & Clubs</button>
+            </div>
+
+            <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <div class="gallery-item reveal h-64 md:h-80" data-category="nursery">
+                    <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg" alt="Nursery classroom reading time" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Story Time</p>
+                        <p class="text-green-200 text-xs">Nursery Section</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="primary">
+                    <img src="https://images.pexels.com/photos/8613068/pexels-photo-8613068.jpeg" alt="Primary classroom lesson" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">In the Classroom</p>
+                        <p class="text-green-200 text-xs">Primary Section</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80 col-span-2 md:col-span-1" data-category="events">
+                    <img src="https://images.pexels.com/photos/8471952/pexels-photo-8471952.jpeg" alt="Children playing outdoors" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Playtime Fun</p>
+                        <p class="text-green-200 text-xs">Recreation</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80" data-category="primary">
+                    <img src="https://images.pexels.com/photos/8613319/pexels-photo-8613319.jpeg" alt="Students working together" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Teamwork</p>
+                        <p class="text-green-200 text-xs">Group Learning</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="arts">
+                    <img src="https://images.pexels.com/photos/8613326/pexels-photo-8613326.jpeg" alt="Art and craft activity" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Creative Arts</p>
+                        <p class="text-green-200 text-xs">Arts & Crafts Club</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80" data-category="sports">
+                    <img src="https://images.pexels.com/photos/8617942/pexels-photo-8617942.jpeg" alt="School sports day" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Sports Day</p>
+                        <p class="text-green-200 text-xs">Athletics</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80 col-span-2 md:col-span-1" data-category="events">
+                    <img src="https://images.pexels.com/photos/8471763/pexels-photo-8471763.jpeg" alt="Graduation ceremony" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Graduation Day</p>
+                        <p class="text-green-200 text-xs">Special Events</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="primary">
+                    <img src="https://images.pexels.com/photos/8613313/pexels-photo-8613313.jpeg" alt="Computer literacy class" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Digital Skills</p>
+                        <p class="text-green-200 text-xs">ICT Lab</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80" data-category="arts">
+                    <img src="https://images.pexels.com/photos/8613321/pexels-photo-8613321.jpeg" alt="Music and singing class" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Music & Song</p>
+                        <p class="text-green-200 text-xs">Music Club</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80" data-category="nursery">
+                    <img src="https://images.pexels.com/photos/8613100/pexels-photo-8613100.jpeg" alt="Nursery playtime" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Little Learners</p>
+                        <p class="text-green-200 text-xs">Nursery Section</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="sports">
+                    <img src="https://images.pexels.com/photos/8617914/pexels-photo-8617914.jpeg" alt="Football practice" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Football Practice</p>
+                        <p class="text-green-200 text-xs">Sports</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal h-64 md:h-80" data-category="events">
+                    <img src="https://images.pexels.com/photos/8471847/pexels-photo-8471847.jpeg" alt="Cultural day celebration" class="w-full h-full object-cover">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-caption">
+                        <p class="text-white font-heading font-bold">Cultural Day</p>
+                        <p class="text-green-200 text-xs">Special Events</p>
+                    </div>
+                </div>
+            </div>
+
+            <p id="no-results" class="hidden text-center text-gray-400 mt-12">No photos in this category yet — check back soon!</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-secondary rounded-full blur-[150px]"></div>
+        </div>
+        <div class="container mx-auto px-6 max-w-7xl text-center reveal relative z-10">
+            <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Come See for Yourself</span>
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Want to Visit In Person?</h2>
+            <p class="text-green-200 mb-8 max-w-xl mx-auto">Pictures only tell half the story. Schedule a tour and experience the warmth of Firm Foundation Academy for yourself.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="admissions.html" class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
+                    Apply Now →
+                </a>
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-full font-bold hover:border-secondary hover:text-secondary transition-colors">
+                    Schedule a Tour
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-green-100 pt-16 pb-8 border-t border-green-950">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full overflow-hidden">
+                            <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="block font-heading font-bold text-lg text-white leading-tight">Firm Foundation</span>
+                            <span class="block font-heading font-semibold text-[10px] text-secondary tracking-widest uppercase">Academy</span>
+                        </div>
+                    </a>
+                    <p class="text-sm leading-relaxed mb-6">Providing quality education in a safe and nurturing environment to raise tomorrow's leaders.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-heading font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="academics.html" class="hover:text-secondary transition-colors">Curriculum</a></li>
+                        <li><a href="gallery.html" class="hover:text-secondary transition-colors">School Gallery</a></li>
+                        <li><a href="news.html" class="hover:text-secondary transition-colors">News & Updates</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-heading font-bold mb-6">Admissions</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="admissions.html" class="hover:text-secondary transition-colors">Apply Online</a></li>
+                        <li><a href="admissions.html" class="hover:text-secondary transition-colors">Admission Process</a></li>
+                        <li><a href="admissions.html" class="hover:text-secondary transition-colors">School Fees Info</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Schedule a Tour</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-heading font-bold mb-6">School Portal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-secondary transition-colors">Student Login</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Staff Portal</a></li>
+                        <li class="pt-2"><a href="#" class="text-secondary font-medium hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-green-950 text-center text-xs text-green-300">
+                <p>&copy; 2026 Firm Foundation Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/2348030969578" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.428a.75.75 0 0 0 .919.919l5.569-1.475A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.362l-.355-.212-3.706.981.993-3.614-.231-.373A9.725 9.725 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            const toggleMenu = () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+                }
+                lucide.createIcons();
+            };
+
+            mobileBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            }));
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // GALLERY FILTER LOGIC
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const noResults = document.getElementById('no-results');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+                    let visibleCount = 0;
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('filtered-out');
+                            visibleCount++;
+                        } else {
+                            item.classList.add('filtered-out');
+                        }
+                    });
+
+                    noResults.classList.toggle('hidden', visibleCount > 0);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
