@@ -78,11 +78,13 @@
             display: flex;
         }
         #lightbox img {
-            max-width: 100vw;
-            max-height: 100vh;
-            object-fit: cover;
-            border-radius: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+           width: 100vw !important;
+           height: 100vh !important;
+           max-width: 100vw !important;
+           max-height: 100vh !important;
+           object-fit: cover !important;
+           border-radius: 0;
+           transition: transform 0.3s ease, opacity 0.3s ease;
 }
         #lightbox img.slide-out-left {
             transform: translateX(-100px);
@@ -366,7 +368,7 @@
     <div id="lightbox" onclick="closeLightbox()">
         <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img id="lightbox-img" src="" alt="">
-<img id="lightbox-img-next" src="" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; opacity: 0;">
+<img id="lightbox-img-next" src="" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100vw; max-height: 100vh; object-fit: contain; border-radius: 0px; opacity: 0;">
         <p id="lightbox-caption"></p>
     </div>
     <!-- ============================================
