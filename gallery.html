@@ -78,10 +78,19 @@
             display: flex;
         }
         #lightbox img {
-            max-width: 90vw;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 12px;
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: cover;
+            border-radius: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+}
+        #lightbox img.slide-out-left {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        #lightbox img.slide-out-right {
+            transform: translateX(100px);
+            opacity: 0;
         }
         #lightbox-close {
             position: absolute;
@@ -259,7 +268,8 @@
                 <div class="rounded-2xl overflow-hidden aspect-square bg-light">
                     <img src="photo12.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
-
+                
+                
             </div>
             <!-- END GALLERY GRID -->
             <!-- TO ADD MORE PHOTOS: Copy one of the div blocks above and paste it here, then change the src and alt -->
@@ -356,6 +366,7 @@
     <div id="lightbox" onclick="closeLightbox()">
         <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img id="lightbox-img" src="" alt="">
+<img id="lightbox-img-next" src="" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; opacity: 0;">
         <p id="lightbox-caption"></p>
     </div>
     <!-- ============================================
@@ -417,44 +428,116 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function showPhotoAtIndex(index) {
-    if (index < 0) index = galleryPhotos.length - 1;
-    if (index >= galleryPhotos.length) index = 0;
+function showPhotoAtIndex(index, direction) {
+    if (index < 0 || index >= galleryPhotos.length) return;
+
     currentPhotoIndex = index;
-    document.getElementById('lightbox-img').src = galleryPhotos[index].src;
+    lightboxImg.src = galleryPhotos[index].src;
     document.getElementById('lightbox-caption').textContent = galleryPhotos[index].caption;
+    lightboxImg.style.transform = 'translateX(0)';
+    lightboxImgNext.style.opacity = '0';
 }
 
 let touchStartX = 0;
+let touchCurrentX = 0;
+let isDragging = false;
+
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxImgNext = document.getElementById('lightbox-img-next');
+
 document.getElementById('lightbox').addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
+    touchCurrentX = touchStartX;
+    isDragging = true;
+    lightboxImg.style.transition = 'none';
+    lightboxImgNext.style.transition = 'none';
 });
-document.getElementById('lightbox').addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-            showPhotoAtIndex(currentPhotoIndex + 1);
-        } else {
-            showPhotoAtIndex(currentPhotoIndex - 1);
-        }
+
+document.getElementById('lightbox').addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    touchCurrentX = e.changedTouches[0].screenX;
+    let dragDistance = touchCurrentX - touchStartX;
+
+    const atFirst = currentPhotoIndex === 0;
+    const atLast = currentPhotoIndex === galleryPhotos.length - 1;
+
+    if (atFirst && dragDistance > 0) dragDistance = dragDistance / 4;
+    if (atLast && dragDistance < 0) dragDistance = dragDistance / 4;
+
+    lightboxImg.style.transform = `translateX(${dragDistance}px)`;
+
+    if (dragDistance < 0 && !atLast) {
+        lightboxImgNext.src = galleryPhotos[currentPhotoIndex + 1].src;
+        lightboxImgNext.style.opacity = '1';
+        lightboxImgNext.style.transform = `translate(calc(-50% + ${dragDistance + window.innerWidth}px), -50%)`;
+    } else if (dragDistance > 0 && !atFirst) {
+        lightboxImgNext.src = galleryPhotos[currentPhotoIndex - 1].src;
+        lightboxImgNext.style.opacity = '1';
+        lightboxImgNext.style.transform = `translate(calc(-50% + ${dragDistance - window.innerWidth}px), -50%)`;
+    } else {
+        lightboxImgNext.style.opacity = '0';
     }
 });
-        function openLightbox(src, caption) {
+
+document.getElementById('lightbox').addEventListener('touchend', () => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const diff = touchStartX - touchCurrentX;
+    const threshold = 50;
+    const goingNext = diff > threshold && currentPhotoIndex < galleryPhotos.length - 1;
+    const goingPrev = diff < -threshold && currentPhotoIndex > 0;
+
+    if (goingNext || goingPrev) {
+        const newIndex = goingNext ? currentPhotoIndex + 1 : currentPhotoIndex - 1;
+
+        lightboxImgNext.style.transition = 'transform 0.3s ease';
+        lightboxImgNext.style.transform = 'translate(-50%, -50%)';
+
+        lightboxImg.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        lightboxImg.style.opacity = '0';
+
+        setTimeout(() => {
+            currentPhotoIndex = newIndex;
+            lightboxImg.src = galleryPhotos[newIndex].src;
+            document.getElementById('lightbox-caption').textContent = galleryPhotos[newIndex].caption;
+            lightboxImg.style.transition = 'none';
+            lightboxImg.style.transform = 'translateX(0)';
+            lightboxImg.style.opacity = '1';
+
+            lightboxImgNext.style.transition = 'none';
+            lightboxImgNext.style.opacity = '0';
+        }, 300);
+
+    } else {
+        lightboxImg.style.transition = 'transform 0.3s ease';
+        lightboxImg.style.transform = 'translateX(0)';
+        lightboxImgNext.style.transition = 'opacity 0.2s ease';
+        lightboxImgNext.style.opacity = '0';
+    }
+});
+
+function openLightbox(src, caption) {
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox-caption').textContent = caption;
     document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
-    history.pushState({ lightboxOpen: true }, '');
+    window.location.hash = 'lightbox-open';
 }
-
-        function closeLightbox(skipHistory) {
+        function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
-    if (!skipHistory && history.state && history.state.lightboxOpen) {
+    if (window.location.hash === '#lightbox-open') {
         history.back();
     }
 }
+
+window.addEventListener('hashchange', () => {
+    if (window.location.hash !== '#lightbox-open') {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
