@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Firm Foundation Academy</title>
-    <meta name="description" content="Take a look inside Firm Foundation Academy — our classrooms, students, activities, and vibrant school life in Benin City, Nigeria.">
+    <meta name="description" content="Browse photos from Firm Foundation Academy — classrooms, events, sports, and more.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,77 +48,83 @@
             transform: translateY(0);
         }
 
-        .whatsapp-float {
+        .gallery-img {
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           LIGHTBOX STYLES
+           TO REMOVE LIGHTBOX: Delete everything between
+           the two LIGHTBOX comment lines below,
+           then delete the lightbox HTML div and
+           the lightbox JavaScript at the bottom.
+        ============================================ */
+        #lightbox {
+            display: none;
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: transform 0.3s ease;
+            padding: 20px;
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            transition: opacity 0.4s ease, transform 0.4s ease;
+        #lightbox.active {
+            display: flex;
         }
-        .gallery-item img {
-            transition: transform 0.5s ease;
+        #lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
         }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-overlay {
+        #lightbox-close {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(13,36,32,0.9) 0%, rgba(13,36,32,0.1) 50%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            top: 20px;
+            right: 24px;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            line-height: 1;
         }
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        .gallery-caption {
+        #lightbox-caption {
             position: absolute;
-            bottom: 0;
+            bottom: 24px;
             left: 0;
             right: 0;
-            padding: 1.5rem;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .gallery-item.filtered-out {
-            display: none;
-        }
-
-        .filter-btn {
-            transition: all 0.3s ease;
-        }
-        .filter-btn.active {
-            background-color: #0D2420;
+            text-align: center;
             color: white;
+            font-size: 14px;
         }
-        .filter-btn:not(.active) {
-            background-color: #F3F4F6;
-            color: #0D2420;
+        /* ============================================
+           END LIGHTBOX STYLES
+        ============================================ */
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 50;
+            transition: transform 0.3s ease;
         }
-        .filter-btn:not(.active):hover {
-            background-color: #FACC15;
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -129,7 +135,7 @@
     <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3">
         <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3 group">
+                <a href="index.html" class="flex items-center gap-3">
                     <div class="w-12 h-12 rounded-full overflow-hidden">
                         <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
                     </div>
@@ -178,156 +184,97 @@
     <section class="bg-primary pt-36 pb-20 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 right-0 w-96 h-96 bg-secondary rounded-full blur-[150px]"></div>
-            <div class="absolute bottom-0 left-0 w-72 h-72 bg-secondary rounded-full blur-[130px]"></div>
         </div>
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <div class="text-center text-white reveal">
-                <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Life at Firm Foundation</span>
-                <h1 class="font-heading font-bold text-4xl md:text-6xl mb-6">Our School <span class="text-secondary">Gallery.</span></h1>
-                <p class="text-green-200 text-lg max-w-2xl mx-auto">Step inside our classrooms, playgrounds, and special moments — every picture tells a story of learning, growth, and joy.</p>
-            </div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10 text-center text-white reveal">
+            <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Our School Life</span>
+            <h1 class="font-heading font-bold text-4xl md:text-6xl mb-6">School <span class="text-secondary">Gallery</span></h1>
+            <p class="text-green-200 text-lg max-w-2xl mx-auto">A glimpse into life at Firm Foundation Academy — our classrooms, events, activities, and memorable moments.</p>
         </div>
     </section>
 
-    <!-- GALLERY GRID WITH FILTERS -->
+    <!-- GALLERY GRID -->
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6 max-w-7xl">
-            <div class="text-center mb-12 reveal">
-                <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Snapshots</span>
-                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-4">Moments Worth Remembering</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">From classroom breakthroughs to playground laughter, here's a glimpse into everyday life at Firm Foundation Academy.</p>
-            </div>
 
-            <!-- FILTER BUTTONS -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
-                <button class="filter-btn active font-bold text-sm px-6 py-2.5 rounded-full" data-filter="all">All</button>
-                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="nursery">Nursery</button>
-                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="primary">Primary</button>
-                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="events">Events</button>
-                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="sports">Sports</button>
-                <button class="filter-btn font-bold text-sm px-6 py-2.5 rounded-full" data-filter="arts">Arts & Clubs</button>
-            </div>
+            <!-- SIMPLE GRID OF PHOTOS -->
+            <!-- TO REMOVE LIGHTBOX: Remove the onclick="openLightbox(...)" from each img tag below -->
+            <div class="grid grid-cols-3 gap-2 reveal">
 
-            <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-                <div class="gallery-item reveal h-64 md:h-80" data-category="nursery">
-                    <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg" alt="Nursery classroom reading time" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Story Time</p>
-                        <p class="text-green-200 text-xs">Nursery Section</p>
-                    </div>
+                <!-- Photo 1 — Replace src with your own image path e.g. src="images/photo1.jpg" -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo1.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
-                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="primary">
-                    <img src="https://images.pexels.com/photos/8613068/pexels-photo-8613068.jpeg" alt="Primary classroom lesson" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">In the Classroom</p>
-                        <p class="text-green-200 text-xs">Primary Section</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80 col-span-2 md:col-span-1" data-category="events">
-                    <img src="https://images.pexels.com/photos/8471952/pexels-photo-8471952.jpeg" alt="Children playing outdoors" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Playtime Fun</p>
-                        <p class="text-green-200 text-xs">Recreation</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80" data-category="primary">
-                    <img src="https://images.pexels.com/photos/8613319/pexels-photo-8613319.jpeg" alt="Students working together" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Teamwork</p>
-                        <p class="text-green-200 text-xs">Group Learning</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="arts">
-                    <img src="https://images.pexels.com/photos/8613326/pexels-photo-8613326.jpeg" alt="Art and craft activity" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Creative Arts</p>
-                        <p class="text-green-200 text-xs">Arts & Crafts Club</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80" data-category="sports">
-                    <img src="https://images.pexels.com/photos/8617942/pexels-photo-8617942.jpeg" alt="School sports day" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Sports Day</p>
-                        <p class="text-green-200 text-xs">Athletics</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80 col-span-2 md:col-span-1" data-category="events">
-                    <img src="https://images.pexels.com/photos/8471763/pexels-photo-8471763.jpeg" alt="Graduation ceremony" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Graduation Day</p>
-                        <p class="text-green-200 text-xs">Special Events</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="primary">
-                    <img src="https://images.pexels.com/photos/8613313/pexels-photo-8613313.jpeg" alt="Computer literacy class" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Digital Skills</p>
-                        <p class="text-green-200 text-xs">ICT Lab</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80" data-category="arts">
-                    <img src="https://images.pexels.com/photos/8613321/pexels-photo-8613321.jpeg" alt="Music and singing class" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Music & Song</p>
-                        <p class="text-green-200 text-xs">Music Club</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80" data-category="nursery">
-                    <img src="https://images.pexels.com/photos/8613100/pexels-photo-8613100.jpeg" alt="Nursery playtime" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Little Learners</p>
-                        <p class="text-green-200 text-xs">Nursery Section</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80 md:mt-10" data-category="sports">
-                    <img src="https://images.pexels.com/photos/8617914/pexels-photo-8617914.jpeg" alt="Football practice" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Football Practice</p>
-                        <p class="text-green-200 text-xs">Sports</p>
-                    </div>
-                </div>
-                <div class="gallery-item reveal h-64 md:h-80" data-category="events">
-                    <img src="https://images.pexels.com/photos/8471847/pexels-photo-8471847.jpeg" alt="Cultural day celebration" class="w-full h-full object-cover">
-                    <div class="gallery-overlay"></div>
-                    <div class="gallery-caption">
-                        <p class="text-white font-heading font-bold">Cultural Day</p>
-                        <p class="text-green-200 text-xs">Special Events</p>
-                    </div>
-                </div>
-            </div>
 
-            <p id="no-results" class="hidden text-center text-gray-400 mt-12">No photos in this category yet — check back soon!</p>
+                <!-- Photo 2 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo2.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo3.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo4.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo5.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo6.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo7.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo8.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 9 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo9.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">>
+                </div>
+
+                <!-- Photo 10 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo10.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 11 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo11.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+                <!-- Photo 12 -->
+                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="photo12.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                </div>
+
+            </div>
+            <!-- END GALLERY GRID -->
+            <!-- TO ADD MORE PHOTOS: Copy one of the div blocks above and paste it here, then change the src and alt -->
+
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-primary relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-secondary rounded-full blur-[150px]"></div>
-        </div>
-        <div class="container mx-auto px-6 max-w-7xl text-center reveal relative z-10">
-            <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Come See for Yourself</span>
-            <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Want to Visit In Person?</h2>
-            <p class="text-green-200 mb-8 max-w-xl mx-auto">Pictures only tell half the story. Schedule a tour and experience the warmth of Firm Foundation Academy for yourself.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="admissions.html" class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
-                    Apply Now →
-                </a>
-                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-full font-bold hover:border-secondary hover:text-secondary transition-colors">
-                    Schedule a Tour
-                </a>
-            </div>
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-6 max-w-7xl text-center reveal">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Want Your Child to Be Part of This?</h2>
+            <p class="text-green-200 mb-8 max-w-xl mx-auto">Apply today and let your child create their own wonderful memories at Firm Foundation Academy.</p>
+            <a href="admissions.html" class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
+                Apply Now →
+            </a>
         </div>
     </section>
 
@@ -338,7 +285,7 @@
                 <div class="lg:col-span-1">
                     <a href="index.html" class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 rounded-full overflow-hidden">
-                            <img src="ffa.jpg" alt="Firm Foundation Academy Logo" class="w-full h-full object-cover">
+                            <img src="ffa.jpg" alt="FFA Logo" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <span class="block font-heading font-bold text-lg text-white leading-tight">Firm Foundation</span>
@@ -358,7 +305,6 @@
                         </a>
                     </div>
                 </div>
-
                 <div>
                     <h4 class="text-white font-heading font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
@@ -368,7 +314,6 @@
                         <li><a href="news.html" class="hover:text-secondary transition-colors">News & Updates</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-white font-heading font-bold mb-6">Admissions</h4>
                     <ul class="space-y-3 text-sm">
@@ -378,7 +323,6 @@
                         <li><a href="contact.html" class="hover:text-secondary transition-colors">Schedule a Tour</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-white font-heading font-bold mb-6">School Portal</h4>
                     <ul class="space-y-3 text-sm">
@@ -388,7 +332,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="pt-8 border-t border-green-950 text-center text-xs text-green-300">
                 <p>&copy; 2026 Firm Foundation Academy. All rights reserved.</p>
             </div>
@@ -398,15 +341,31 @@
     <!-- WHATSAPP BUTTON -->
     <a href="https://wa.me/2348030969578" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.428a.75.75 0 0 0 .919.919l5.569-1.475A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.362l-.355-.212-3.706.981.993-3.614-.231-.373A9.725 9.725 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.859L.057 23.428a.75.75 0 0 0 .919.919l5.569-1.475A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.362l-.355-.212-3.706.981.993-3.614-.231-.373A9.725 9.725 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
         </svg>
-    </a>
+        <span class="hidden md:inline">Message Us</span>
+    </a> 
+
+    <!-- ============================================
+         LIGHTBOX HTML
+         TO REMOVE LIGHTBOX: Delete this entire div below
+    ============================================ -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <p id="lightbox-caption"></p>
+    </div>
+    <!-- ============================================
+         END LIGHTBOX HTML
+    ============================================ -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
+        lucide.createIcons();
 
+        document.addEventListener('DOMContentLoaded', () => {
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -440,33 +399,71 @@
             }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
             revealElements.forEach(el => revealObserver.observe(el));
-
-            // GALLERY FILTER LOGIC
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const noResults = document.getElementById('no-results');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filter = btn.getAttribute('data-filter');
-                    let visibleCount = 0;
-
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.classList.remove('filtered-out');
-                            visibleCount++;
-                        } else {
-                            item.classList.add('filtered-out');
-                        }
-                    });
-
-                    noResults.classList.toggle('hidden', visibleCount > 0);
-                });
-            });
         });
+
+        /*
+        ============================================
+        LIGHTBOX JAVASCRIPT
+        TO REMOVE LIGHTBOX: Delete the two functions below
+        ============================================
+        */
+        let galleryPhotos = [];
+let currentPhotoIndex = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gallery-img').forEach((img, index) => {
+        galleryPhotos.push({ src: img.src, caption: img.alt });
+        img.addEventListener('click', () => { currentPhotoIndex = index; });
+    });
+});
+
+function showPhotoAtIndex(index) {
+    if (index < 0) index = galleryPhotos.length - 1;
+    if (index >= galleryPhotos.length) index = 0;
+    currentPhotoIndex = index;
+    document.getElementById('lightbox-img').src = galleryPhotos[index].src;
+    document.getElementById('lightbox-caption').textContent = galleryPhotos[index].caption;
+}
+
+let touchStartX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+document.getElementById('lightbox').addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+            showPhotoAtIndex(currentPhotoIndex + 1);
+        } else {
+            showPhotoAtIndex(currentPhotoIndex - 1);
+        }
+    }
+});
+        function openLightbox(src, caption) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-caption').textContent = caption;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    history.pushState({ lightboxOpen: true }, '');
+}
+
+        function closeLightbox(skipHistory) {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+    if (!skipHistory && history.state && history.state.lightboxOpen) {
+        history.back();
+    }
+}
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+        /*
+        ============================================
+        END LIGHTBOX JAVASCRIPT
+        ============================================
+        */
     </script>
 
 </body>
