@@ -92,7 +92,7 @@
             }
         }
         #lightbox img.slide-out-left {
-            transform: translateX(50px);
+            transform: translateX(-50px);
             opacity: 0;
         }
         #lightbox img.slide-out-right {
@@ -514,12 +514,15 @@ document.getElementById('lightbox').addEventListener('touchend', () => {
             currentPhotoIndex = newIndex;
             lightboxImg.src = galleryPhotos[newIndex].src;
             document.getElementById('lightbox-caption').textContent = galleryPhotos[newIndex].caption;
-            lightboxImg.style.transition = 'none';
-            lightboxImg.style.transform = 'translateX(0)';
-            lightboxImg.style.opacity = '1';
 
             lightboxImgNext.style.transition = 'none';
             lightboxImgNext.style.opacity = '0';
+
+            requestAnimationFrame(() => {
+                lightboxImg.style.transition = 'none';
+                lightboxImg.style.transform = 'translateX(0)';
+                lightboxImg.style.opacity = '1';
+            });
         }, 300);
 
     } else {
