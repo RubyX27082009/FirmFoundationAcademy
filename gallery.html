@@ -78,13 +78,13 @@
             display: flex;
         }
         #lightbox img {
-           width: 100vw !important;
-           height: 100vh !important;
-           max-width: 100vw !important;
-           max-height: 100vh !important;
-           object-fit: cover !important;
-           border-radius: 0;
-           transition: transform 0.3s ease, opacity 0.3s ease;
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: cover;
+            border-radius: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+}e;
+}e;
 }
         #lightbox img.slide-out-left {
             transform: translateX(-100px);
@@ -204,7 +204,7 @@
     </section>
 
     <!-- GALLERY GRID -->
-    <section class="py-24 bg-white">
+    <section class="py-10 bg-white pb-8 pb-20">
         <div class="container mx-auto px-6 max-w-7xl">
 
             <!-- SIMPLE GRID OF PHOTOS -->
@@ -448,6 +448,10 @@ const lightboxImg = document.getElementById('lightbox-img');
 const lightboxImgNext = document.getElementById('lightbox-img-next');
 
 document.getElementById('lightbox').addEventListener('touchstart', (e) => {
+    if (e.touches.length > 1) {
+        isDragging = false;
+        return;
+    }
     touchStartX = e.changedTouches[0].screenX;
     touchCurrentX = touchStartX;
     isDragging = true;
@@ -456,6 +460,7 @@ document.getElementById('lightbox').addEventListener('touchstart', (e) => {
 });
 
 document.getElementById('lightbox').addEventListener('touchmove', (e) => {
+    if (e.touches.length > 1) return;
     if (!isDragging) return;
     touchCurrentX = e.changedTouches[0].screenX;
     let dragDistance = touchCurrentX - touchStartX;
