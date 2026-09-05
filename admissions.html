@@ -134,7 +134,7 @@
                 <span class="inline-block bg-secondary/20 text-secondary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-4">Join Our Family</span>
                 <h1 class="font-heading font-bold text-4xl md:text-6xl mb-6">Start Your Child's <span class="text-secondary">Journey</span> Today.</h1>
                 <p class="text-green-200 text-lg max-w-2xl mx-auto">We are currently accepting applications for the new academic session. Secure a spot for your child in a school that prioritises their success.</p>
-            <a href="#apply" class="inline-flex items-center justify-center mt-8 px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
+            <a href="#enrollForm" class="inline-flex items-center justify-center mt-8 px-8 py-4 bg-secondary text-primary rounded-full font-bold hover:bg-secondaryHover transition-colors">
                     Apply Now →
                 </a>
             </div>
@@ -278,7 +278,7 @@
                 </div>
                 <div>
                                 <label class="block text-sm font-bold text-primary mb-1">Class Intended</label>
-                                <select name="Class Intended" required
+                                <select id="classIntended" name="Class Intended" required
                                     class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary appearance-none">
                                     <option value="">Select Class</option>
                                     <option>Preschool</option>
@@ -414,10 +414,11 @@
 
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // ===== SUPABASE SETUP =====
+            // ===== SUPABASE & APPS SCRIPT SETUP =====
             const SUPABASE_URL = 'https://pmdnmmyoomecrycsjwoa.supabase.co';
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtZG5tbXlvb21lY3J5Y3Nqd29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODI4MTEsImV4cCI6MjA5Njk1ODgxMX0.uLIdShLsddsD7hN-Ah5NvioYjwKRmel4WHiIU-8Znhg';
-            const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuRvTwKlk9qja6qDb5t3RHtf2xaMZGbZtpdkIeJ1em1AKJGlAzKsa1ziKeIGEELFk/exec';
 
             const enrollForm = document.getElementById('enrollForm');
             const submitBtn = document.getElementById('submitBtn');
@@ -427,23 +428,48 @@
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
 
-                const { error } = await supabaseClient.from('Enrollments').insert([
-                    {
-                        'Parent name': document.getElementById('parentName').value,
-                        'Phone': document.getElementById('phone').value,
-                        'Email': document.getElementById('email').value,
-                        'Child name': document.getElementById('childName').value,
-                        'Class Intended': document.getElementById('classIntended').value
-                    }
-                ]);
+                const formData = {
+                    type: 'enrollment',
+                    parent_name: document.getElementById('parentName').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    child_name: document.getElementById('childName').value,
+                    class_intended: document.getElementById('classIntended').value,
+                };
 
-                if (error) {
-                    submitBtn.textContent = 'Error - Try Again';
-                    submitBtn.disabled = false;
-                    console.error(error);
-                } else {
+                try {
+                    // 1. Save to Supabase
+                    const { error } = await supabaseClient.from('Enrollments').insert([
+                        {
+                            'Parent Name': formData.parent_name,
+                            'Phone': formData.phone,
+                            'Email': formData.email,
+                            'Child Name': formData.child_name,
+                            'Class Intended': formData.class_intended
+                        }
+                    ]);
+
+                    if (error) throw error;
+
+                    // 2. Send to Google Sheets + Email notification
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: JSON.stringify(formData)
+                    });
+
                     submitBtn.textContent = 'Submitted ✓';
                     enrollForm.reset();
+
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Submit';
+                        submitBtn.disabled = false;
+                    }, 4000);
+
+                } catch (err) {
+                    console.error(err);
+                    submitBtn.textContent = 'Error - Try Again';
+                    submitBtn.disabled = false;
                 }
             });
         });
