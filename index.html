@@ -401,7 +401,7 @@
                 <a href="admissions.html" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors text-lg">
                     Apply Now →
                 </a>
-                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-secondary text-primary rounded-full font-bold hover: bg-secondary hover:text-secondary transition-colors text-lg">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-secondary text-primary rounded-full font-bold hover: bg-secondary hover:text-primary transition-colors text-lg">
                     Contact Us
                 </a>
             </div>
@@ -490,16 +490,17 @@
     let isMenuOpen = false;
 
     const toggleMenu = () => {
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-            mobileMenu.classList.remove('hidden');
-            mobileBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
-        } else {
-            mobileMenu.classList.add('hidden');
-            mobileBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
-        }
-        lucide.createIcons();
-    };
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        requestAnimationFrame(() => mobileMenu.classList.add('menu-open'));
+        mobileBtn.classList.add('open');
+    } else {
+        mobileMenu.classList.remove('menu-open');
+        mobileBtn.classList.remove('open');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 350);
+    }
+};
 
     mobileBtn.addEventListener('click', toggleMenu);
     mobileLinks.forEach(link => link.addEventListener('click', () => {
