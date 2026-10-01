@@ -52,8 +52,11 @@
         #navbar {
     border-bottom: none;
     box-shadow: none;
-    background-color: transparent;
+    background-color: transparent;                
     transition: background-color 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
         #navbar.solid {
     background-color: rgba(255, 255, 255, 0.95);
