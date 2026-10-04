@@ -76,9 +76,6 @@
         .nav-link {
             color: #ffffff;
         }
-        .nav-link.text-secondary {
-            color: #FACC15 !important;
-        }
 
         /* ===== Hamburger: three bars ===== */
         .hamburger-btn {
@@ -132,13 +129,4 @@
             padding-bottom: 1rem;
         }
     </style>
-    <script>
-    document.querySelectorAll('.nav-link, .mobile-link').forEach(link => {
-        link.addEventListener('click', function() {
-            document.querySelectorAll('.nav-link, .mobile-link').forEach(l => {
-                l.classList.remove('text-secondary', 'font-bold');
-            });
-        });
-    });
-</script>
 </header>
