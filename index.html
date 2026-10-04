@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-store">
     <title>Firm Foundation Academy | Building Future Leaders</title>
     <meta name="description" content="Firm Foundation Academy provides quality nursery, primary, and junior secondary education in a safe, modern, and disciplined environment in Benin City, Nigeria.">
 
@@ -506,6 +505,17 @@
             navbar.classList.remove('solid');
         }
     };
+    
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.querySelectorAll('[data-nav]').forEach(link => {
+                link.classList.remove('text-secondary', 'font-bold');
+                if (link.getAttribute('data-nav') === currentPage) {
+                    link.classList.add('text-secondary', 'font-bold');
+                }
+            });
+        }
+    });
 
     const closeMenu = (callback) => {
         isMenuOpen = false;

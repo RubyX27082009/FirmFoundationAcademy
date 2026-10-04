@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-store">
     <title>Gallery | Firm Foundation Academy</title>
     <meta name="description" content="Browse photos from Firm Foundation Academy — classrooms, events, sports, and more.">
 
@@ -858,6 +857,17 @@
     document.querySelectorAll('[data-nav]').forEach(link => {
         if (link.getAttribute('data-nav') === currentPage) {
             link.classList.add('text-secondary', 'font-bold');
+        }
+    });
+    
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.querySelectorAll('[data-nav]').forEach(link => {
+                link.classList.remove('text-secondary', 'font-bold');
+                if (link.getAttribute('data-nav') === currentPage) {
+                    link.classList.add('text-secondary', 'font-bold');
+                }
+            });
         }
     });
 
