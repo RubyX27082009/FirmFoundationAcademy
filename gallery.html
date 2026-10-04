@@ -897,7 +897,15 @@
         }
     };
 
-    window.addEventListener('scroll', updateNavbarState);
+    let navbarIsSolid = false;
+    const scrollCheck = () => {
+        const shouldBeSolid = window.scrollY > 40 || isMenuOpen;
+        if (shouldBeSolid !== navbarIsSolid) {
+            navbarIsSolid = shouldBeSolid;
+            updateNavbarState();
+        }
+    };
+    window.addEventListener('scroll', scrollCheck, { passive: true });
     updateNavbarState();
 
     mobileBtn.addEventListener('click', toggleMenu);
