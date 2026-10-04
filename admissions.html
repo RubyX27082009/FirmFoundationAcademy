@@ -304,7 +304,25 @@
         fetch('footer.html').then(r => r.text())
     ]);
     document.getElementById('header-placeholder').innerHTML = headerHTML;
-    document.getElementById('footer-placeholder').innerHTML = footerHTML; 
+    document.getElementById('footer-placeholder').innerHTML = footerHTML;
+
+    const currentPage = document.body.getAttribute('data-page');
+    document.querySelectorAll('[data-nav]').forEach(link => {
+        if (link.getAttribute('data-nav') === currentPage) {
+            link.classList.add('text-secondary', 'font-bold');
+        }
+    });
+    
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.querySelectorAll('[data-nav]').forEach(link => {
+                link.classList.remove('text-secondary', 'font-bold');
+                if (link.getAttribute('data-nav') === currentPage) {
+                    link.classList.add('text-secondary', 'font-bold');
+                }
+            });
+        }
+    });
 
     lucide.createIcons();
 
