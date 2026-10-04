@@ -132,4 +132,13 @@
             padding-bottom: 1rem;
         }
     </style>
+    <script>
+    document.querySelectorAll('.nav-link, .mobile-link').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.nav-link, .mobile-link').forEach(l => {
+                l.classList.remove('text-secondary', 'font-bold');
+            });
+        });
+    });
+</script>
 </header>
