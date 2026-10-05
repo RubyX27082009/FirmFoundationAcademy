@@ -121,6 +121,31 @@
            END LIGHTBOX STYLES
         ============================================ */
 
+        /* Gallery pagination buttons */
+        .page-btn {
+            min-width: 40px;
+            height: 40px;
+            padding: 0 14px;
+            border-radius: 9999px;
+            background-color: #0D2420;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        }
+        .page-btn:hover:not(:disabled) {
+            background-color: #FACC15;
+            color: #0D2420;
+        }
+        .page-btn.active-page {
+            background-color: #FACC15;
+            color: #0D2420;
+        }
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
@@ -178,638 +203,645 @@
             <div class="grid grid-cols-3 gap-2 reveal">
 
                 <!-- Photo 1 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo1.webp" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo1.webp" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>       
 
                 <!-- Photo 5 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo5.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo5.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
 
                 <!-- Photo 7 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo7.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo7.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
 
                 <!-- Photo 8 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo8.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo8.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
 
                 <!-- Photo 9 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo9.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo9.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
 
                 <!-- Photo 10 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo10.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo10.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
 
                 <!-- Photo 11 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo11.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo11.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
 
                 <!-- Photo 12 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo12.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo12.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 13 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo13.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo13.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 14 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo14.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo14.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 15 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo15.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo15.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 16 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo16.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo16.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 17 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo17.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo17.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 18 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo18.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo18.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 19 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo19.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo19.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 20 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo20.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo20.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 21 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo21.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo21.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 22 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo22.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo22.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 23 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo23.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo23.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 24 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo24.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo24.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 25 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo25.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo25.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 26 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo26.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo26.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 27 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo27.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo27.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 28 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo28.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo28.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 29 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo29.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo29.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 30 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo30.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo30.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 31 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo31.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo31.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 32 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo32.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo32.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 33 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo33.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo33.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 34 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo34.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo34.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 35 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo35.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo35.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 36 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo36.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo36.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 37 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo37.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo37.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 38 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo38.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo38.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 39 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo39.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo39.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 40 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo40.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo40.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 41 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo41.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo41.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 42 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo42.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo42.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 43 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo43.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo43.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 44 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo44.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo44.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 45 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo45.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo45.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 46 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo46.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo46.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 47 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo47.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo47.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 48 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo48.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo48.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 49 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo49.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo49.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 50 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo50.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo50.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 51 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo51.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo51.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 52 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo52.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo52.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 53 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo53.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo53.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 54 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo54.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo54.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 55 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo55.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo55.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 56 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo56.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo56.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 57 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo57.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo57.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 58 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo58.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo58.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 59 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo59.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo59.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 60 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo60.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo60.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 61 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo61.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo61.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 62 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo62.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo62.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 63 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo63.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo63.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 64 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo64.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo64.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 65 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo65.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo65.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 66 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo66.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo66.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 67 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo67.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo67.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 68 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo68.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo68.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 69 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo69.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo69.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 70 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo70.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo70.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 71 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo71.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo71.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 72 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo72.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo72.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 73 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo73.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo73.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 74 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo74.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo74.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 75 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo75.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo75.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 76 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo76.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo76.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 77 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo77.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo77.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 78 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo78.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo78.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 79 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo79.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo79.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 80 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo80.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo80.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 81 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo81.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo81.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 82 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo82.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo82.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 83 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo83.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo83.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 84 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo84.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo84.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 85 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo85.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo85.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 86 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo86.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo86.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 87 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo87.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo87.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 88 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo88.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo88.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 89 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo89.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo89.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 90 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo90.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo90.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 91 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo91.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo91.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 92 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo92.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo92.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 93 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo93.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo93.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 94 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo94.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo94.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 95 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo95.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo95.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 96 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo96.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo96.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 97 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo97.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo97.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 98 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo98.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo98.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 99 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo99.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo99.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 100 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo100.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo100.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 101 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo101.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo101.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 102 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo102.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo102.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 103 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo103.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo103.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 104 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo104.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo104.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 105 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo105.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo105.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 106 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo106.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo106.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 107 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo107.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo107.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 108 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo108.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo108.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 109 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo109.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo109.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 110 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo110.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo110.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 111 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo111.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo111.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 112 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo112.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo112.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 113 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo113.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo113.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 114 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo114.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo114.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 115 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo115.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo115.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 116 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo116.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo116.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 117 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo117.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo117.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 118 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo118.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo118.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 119 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo119.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo119.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 120 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo120.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo120.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 121 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo121.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo121.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 122 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo122.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo122.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 123 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo123.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo123.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 124 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo124.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo124.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 125 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo125.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo125.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 126 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo126.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo126.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 127 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo127.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo127.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 128 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo128.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo128.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 129 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo129.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo129.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                 
                 <!-- Photo 130 -->
-                <div class="rounded-2xl overflow-hidden aspect-square bg-light">
-                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo130.jpg" alt="" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
+                <div class="gallery-item rounded-2xl overflow-hidden aspect-square bg-light">
+                    <img src="https://pmdnmmyoomecrycsjwoa.supabase.co/storage/v1/object/public/Firm%20Foundation%20images/photo130.jpg" alt="" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover" onclick="openLightbox(this.src,'')">
                 </div>
                                                 
             </div>
             <!-- END GALLERY GRID -->
-            <!-- TO ADD MORE PHOTOS: Copy one of the div blocks above and paste it here, then change the src and alt -->
+            <!-- TO ADD MORE PHOTOS: Copy one of the div blocks above and paste it here, then change the src and alt — the pagination buttons update automatically -->
+
+            <!-- PAGINATION (buttons are generated by the script at the bottom) -->
+            <div id="pagination" style="display: none;" class="mt-10 flex flex-wrap items-center justify-center gap-2">
+                <button id="page-prev" class="page-btn" aria-label="Previous page">&larr;</button>
+                <div id="page-numbers" class="flex flex-wrap items-center justify-center gap-2"></div>
+                <button id="page-next" class="page-btn" aria-label="Next page">&rarr;</button>
+            </div>
 
         </div>
     </section>
@@ -1097,6 +1129,92 @@ window.addEventListener('hashchange', () => {
         END LIGHTBOX JAVASCRIPT
         ============================================
         */
+    </script>
+
+    <script>
+        /* ============================================
+           GALLERY PAGINATION
+           TO CHANGE PHOTOS PER PAGE: edit PAGE_SIZE below.
+           Buttons are generated automatically from the
+           number of .gallery-item blocks in the grid.
+        ============================================ */
+        (function () {
+            const PAGE_SIZE = 24;
+            const grid = document.querySelector('.grid.grid-cols-3');
+            const items = Array.from(document.querySelectorAll('.gallery-item'));
+            const pagination = document.getElementById('pagination');
+            const pageNumbers = document.getElementById('page-numbers');
+            const prevBtn = document.getElementById('page-prev');
+            const nextBtn = document.getElementById('page-next');
+
+            const totalPages = Math.ceil(items.length / PAGE_SIZE);
+            if (totalPages <= 1) return;
+
+            let currentPage = 1;
+            let initialized = false;
+
+            function scrollToGrid() {
+                if (!grid) return;
+                const top = grid.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+
+            function showPage(page) {
+                const newPage = Math.min(Math.max(1, page), totalPages);
+                if (initialized && newPage === currentPage) return;
+
+                // Cancel any in-flight downloads on the outgoing page, so quick
+                // page flips never queue up dozens of heavy images at once.
+                if (initialized) {
+                    const oldStart = (currentPage - 1) * PAGE_SIZE;
+                    for (let i = oldStart; i < oldStart + PAGE_SIZE && i < items.length; i++) {
+                        const img = items[i].querySelector('img');
+                        if (img && img.getAttribute('src')) {
+                            img.dataset.realSrc = img.src;
+                            img.removeAttribute('src');
+                        }
+                    }
+                }
+
+                currentPage = newPage;
+                const start = (currentPage - 1) * PAGE_SIZE;
+                items.forEach(function (item, i) {
+                    const visible = i >= start && i < start + PAGE_SIZE;
+                    const img = item.querySelector('img');
+                    if (visible) {
+                        item.style.display = '';
+                        if (img && img.dataset.realSrc && !img.getAttribute('src')) {
+                            img.src = img.dataset.realSrc;
+                        }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                pageNumbers.querySelectorAll('.page-btn').forEach(function (btn) {
+                    const isActive = Number(btn.dataset.page) === currentPage;
+                    btn.classList.toggle('active-page', isActive);
+                    if (isActive) { btn.setAttribute('aria-current', 'page'); } else { btn.removeAttribute('aria-current'); }
+                });
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            }
+
+            for (let p = 1; p <= totalPages; p++) {
+                const btn = document.createElement('button');
+                btn.textContent = p;
+                btn.className = 'page-btn';
+                btn.dataset.page = p;
+                btn.addEventListener('click', function () { showPage(p); scrollToGrid(); });
+                pageNumbers.appendChild(btn);
+            }
+
+            prevBtn.addEventListener('click', function () { showPage(currentPage - 1); scrollToGrid(); });
+            nextBtn.addEventListener('click', function () { showPage(currentPage + 1); scrollToGrid(); });
+
+            pagination.style.display = 'flex';
+            showPage(1);
+            initialized = true;
+        })();
     </script>
 
 </body>
