@@ -324,6 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         mode: 'no-cors',
                         body: JSON.stringify(formData)
                     });
+                    const waMessage = `New Contact Message%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`;
+                    window.open(`https://wa.me/2348030969578?text=${waMessage}`, '_blank');
 
                     submitBtn.textContent = 'Message Sent ✓';
                     statusMsg.textContent = "Thank you! We'll get back to you soon.";

@@ -440,6 +440,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         mode: 'no-cors',
                         body: JSON.stringify(formData)
                     });
+                    const waMessage = `New Admission Inquiry%0A%0AParent: ${formData.parent_name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AChild: ${formData.child_name}%0AClass: ${formData.class_intended}`;
+                    window.open(`https://wa.me/2348030969578?text=${waMessage}`, '_blank');
 
                     submitBtn.textContent = 'Submitted ✓';
                     enrollForm.reset();
