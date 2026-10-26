@@ -458,19 +458,10 @@
                     mode: 'no-cors',
                     body: JSON.stringify(formData)
                 });
-
+                
                 const waMessage = `New Admission Inquiry%0A%0AParent: ${formData.parent_name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AChild: ${formData.child_name}%0AClass: ${formData.class_intended}`;
                 window.open(`https://wa.me/2348030969578?text=${waMessage}`, '_blank');
-So lines 456–461 will read:
-await fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(formData)
-                });
-
-                const waMessage = `New Admission Inquiry%0A%0AParent: ${formData.parent_name}%0APhone: ${formData.phone}%0AEmail: ${formData.email}%0AChild: ${formData.child_name}%0AClass: ${formData.class_intended}`;
-                window.open(`https://wa.me/2348030969578?text=${waMessage}`, '_blank');
-
+                                
                 btn.textContent = 'Submitted ✓';
                 successMsg.classList.remove('hidden');
                 this.reset();
